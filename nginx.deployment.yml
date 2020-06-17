@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: my-nginx
+    tier: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+      - name: my-nginx
+        image: nginx:alpine
+        livenessProbe:
+          httpGet:
+            path: /index.html
+            port: 80
+          initialDelaySeconds: 2
+          timeoutSeconds: 2
+          periodSeconds: 5
+          failureThreshold: 1
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "200m" # 20% of CPU
+
+# k get deployments --show-labels
+# k scale deployment frontend --replicas=4
+# k delete deployment frontend
+
+# k describe deployment frontend
+# k get deployments -l tier=frontend --> find deployment based on label
