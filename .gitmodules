@@ -1,0 +1,3 @@
+[submodule "DockerAndKubernetesCourseCode"]
+	path = DockerAndKubernetesCourseCode
+	url = https://github.com/DanWahlin/DockerAndKubernetesCourseCode
