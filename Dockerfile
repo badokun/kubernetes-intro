@@ -3,11 +3,11 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
 WORKDIR /source
 
 # copy csproj and restore as distinct layers
-COPY sampleApp/WebApp/*.csproj .
+COPY WebApp/*.csproj .
 RUN dotnet restore
 
 # copy everything else and build app
-COPY sampleApp/WebApp/. .
+COPY WebApp/. .
 WORKDIR /source
 RUN dotnet publish -c Release -o out
 

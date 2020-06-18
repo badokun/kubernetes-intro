@@ -14,7 +14,7 @@ namespace WebApp.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            const string version = "V4";
+            const string version = "V5";
             return Ok(new
             {
                 version,

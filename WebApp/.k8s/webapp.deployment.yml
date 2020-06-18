@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: webapi
-        image: badokun/webapp:v4
+        image: badokun/webapp:v5
         livenessProbe:
           httpGet:
             path: /ping
