@@ -1,0 +1,5 @@
+# k create configmap webapp-settings --from-file=config.ini
+
+# k create configmap webapp-settings --from-env-file=config.ini
+
+# k create -f webapp.configmap.yml
