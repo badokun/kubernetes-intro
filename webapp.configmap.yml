@@ -1,5 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: webapp-settings
+data:
+  EXCHANGE: bitmex
+  security: XBTUSD
+  
+
+
 # k create configmap webapp-settings --from-file=config.ini
 
 # k create configmap webapp-settings --from-env-file=config.ini
 
 # k create -f webapp.configmap.yml
+
+# k get configmap webapp-settings -o yaml

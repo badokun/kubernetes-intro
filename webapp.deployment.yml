@@ -6,7 +6,7 @@ metadata:
     app: webapi
     tier: api
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       tier: api
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: webapi
-        image: badokun/webapp:v2
+        image: badokun/webapp:v4
         livenessProbe:
           httpGet:
             path: /ping
@@ -49,6 +49,20 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: status.podIP
+        - name: EXCHANGE
+          valueFrom:
+            configMapKeyRef:
+              name: webapp-settings
+              key: EXCHANGE
+#        envFrom:
+#        - configMapRef:
+#            name: webapp-settings 
+        - name: API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: webapp-secrets
+              key: api-key
+
 
 # k get deployments --show-labels
 # k scale deployment api --replicas=4

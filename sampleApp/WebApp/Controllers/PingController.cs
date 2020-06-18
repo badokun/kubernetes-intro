@@ -14,14 +14,16 @@ namespace WebApp.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            const string version = "V2";
+            const string version = "V4";
             return Ok(new
             {
                 version,
                 nodeName = Environment.GetEnvironmentVariable("MY_NODE_NAME"),
                 podName = Environment.GetEnvironmentVariable("MY_POD_NAME"),
                 podNamespace = Environment.GetEnvironmentVariable("MY_POD_NAMESPACE"),
-                podId = Environment.GetEnvironmentVariable("MY_POD_IP")
+                podId = Environment.GetEnvironmentVariable("MY_POD_IP"),
+                exchange = Environment.GetEnvironmentVariable("EXCHANGE"),
+                apiKey = Environment.GetEnvironmentVariable("API_KEY")
             });
         }
     }
