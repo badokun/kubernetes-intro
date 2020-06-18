@@ -14,3 +14,8 @@ The service will run on <http://localhost:8001/> after running `kubectl proxy`
 ## Kubernetes Examples
 
 <https://github.com/kubernetes/examples>
+
+## Troubleshooting Techniques
+
+* k exec [pod-name] -it sh
+* k logs -f [pod-name]
